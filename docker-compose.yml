@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  web:
+    container_name: eltech_library_nginx
+    image: nginx:latest
+    ports:
+      - "1886:80"
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d/
+      - ./nginx/logs:/var/log/nginx/
+      - ./src:/www
+    links:
+      - php
+      - mariadb
+  php:
+    container_name: eltech_library_php
+    image: sadykh/php
+    volumes:
+      - ./src:/www
+      - ./db:/var/lib/mysql
+    links:
+      - mariadb
+  mariadb:
+    container_name: eltech_library_db
+    image: sadykh/mariadb-utf8:latest
+    env_file:
+      - .env
+    expose:
+      - "3306"
+    volumes:
+     - ./db:/var/lib/mysql
