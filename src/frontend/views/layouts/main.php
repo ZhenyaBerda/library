@@ -28,7 +28,6 @@ $menuItems = [
         ['label' => 'Главная', 'url' => "http://local.eltech-library.ru"],
         ['label' => 'Поиск', 'url' => "http://local.eltech-library.ru/search/index"],
         ['label' => 'Авторы', 'url' => "http://local.eltech-library.ru/author"],
-//        ['label' => 'Журналы', 'url' => "http://local.eltech-library.ru/journal"],
         ['label' => 'Публикации', 'url' => "http://local.eltech-library.ru/publication"],
         ];
 }
@@ -89,7 +88,7 @@ $menuItems = [
                 <li class="nav-item">
                     <a class="nav-link" href="<?= $element['url']?>"><?= $element['label']?></a>
                 </li>
-                 <? endforeach; ?>
+                 <? endforeach?>
             </ul>
         </div>
     </nav>
