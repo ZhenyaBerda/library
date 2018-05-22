@@ -53,7 +53,7 @@ use dastanaron\translit\Translit;
     }
 
     if ($model->file_exist) {
-        echo Html::a($textLink, $model->getFileOnWeb(), ['_target' => 'blank']);
+        echo Html::a($textLink, $model->getFileOnWeb(), ['target' => '_blank']);
     } else {
         echo $textLink;
     }
