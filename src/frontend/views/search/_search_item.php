@@ -57,6 +57,10 @@ use dastanaron\translit\Translit;
     } else {
         echo $textLink;
     }
+    if (!Yii::$app->user->isGuest) {
+        echo ' | ' . Html::a('Отредактировать', ['/publication/update', 'id' => $model->id]);
+
+    }
     ?>
 
 </li>
