@@ -148,3 +148,10 @@ a.desc:after {
     border-right: none;
     background-color: transparent;
 }
+
+select {
+    height: 47px;
+    padding: 0.75rem 2rem;
+    font-size: 16px;
+    line-height: 1.5rem;
+}
