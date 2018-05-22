@@ -1,5 +1,6 @@
 <?php
 
+use yii\grid\ActionColumn;
 use yii\helpers\Html;
 use yii\grid\GridView;
 use common\helpers\PublicationHelper;
@@ -9,16 +10,11 @@ use common\helpers\PublicationHelper;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Публикации';
-$this->params['breadcrumbs'][] = $this->title;
+
 ?>
 <div class="publication-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-
-    <div class="alert alert-info" role="alert">
-        На данной странице указаны только публикации, которые вы добавили. Изменять или удалять публикации других
-        пользователей вы не имеете возможности.
-    </div>
 
     <p>
         <?= Html::a('Добавить публикацию', ['create'], ['class' => 'btn btn-success']) ?>
@@ -64,10 +60,25 @@ $this->params['breadcrumbs'][] = $this->title;
                     return mb_substr($model->publisher_name, 0, 30) . $dots;
                 }
             ],
+
             [
-                'class' => 'yii\grid\ActionColumn',
-                'template' => '{update} {delete}',
-                'headerOptions' => ['width' => '20'],
+//                'class' => 'yii\grid\ActionColumn',
+//                'template' => '{update} {delete}',
+//                'headerOptions' => ['width' => '20'],
+                'class' => ActionColumn::className(),
+                'buttons' => [
+                    'update' => function ($url, $model, $key) {
+                        return Html::a('Редактировать', $url);
+                    }
+                ]
+            ],
+            [
+                'class' => ActionColumn::className(),
+                'buttons' => [
+                    'delete' => function ($url, $model, $key) {
+                        return Html::a('Удалить', $url, ['data-method'=>'post']);
+                    }
+                ]
             ],
         ],
     ]); ?>

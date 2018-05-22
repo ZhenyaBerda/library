@@ -7,8 +7,8 @@ use yii\helpers\Html;
 /* @var $model common\models\Author */
 
 $this->title = 'Добавление автора';
-$this->params['breadcrumbs'][] = ['label' => 'Авторы', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+//$this->params['breadcrumbs'][] = ['label' => 'Авторы', 'url' => ['index']];
+//$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="author-create">
 

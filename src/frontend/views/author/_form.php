@@ -15,15 +15,17 @@ use common\helpers\AuthorHelper;
 
     <div class="row">
         <div class="col-md-4">
-            <?= $form->field($model, 'firstName')->textInput(['maxlength' => true]) ?>
-        </div>
 
-        <div class="col-md-4">
-            <div class="alert alert-info" role="alert">
-                Данные поля обязательны для заполнения. Пожалуйста, заполняйте на русском языке.
+            <?= $form->field($model, 'firstName')->textInput(['maxlength' => true]) ?>
             </div>
         </div>
 
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <?= $form->field($model, 'middleName')->textInput(['maxlength' => true]) ?>
+        </div>
     </div>
 
     <div class="row">
@@ -31,16 +33,7 @@ use common\helpers\AuthorHelper;
             <?= $form->field($model, 'lastName')->textInput(['maxlength' => true]) ?>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-4">
-            <?= $form->field($model, 'middleName')->textInput(['maxlength' => true]) ?>
-        </div>
-        <div class="col-md-4" style="margin-top: 15px">
-            <div class="alert alert-info" role="alert">
-                <p>Поле <b>Отчество</b> заполняется при его наличии.</p>
-            </div>
-        </div>
-    </div>
+
 
 
     <div class="form-group">

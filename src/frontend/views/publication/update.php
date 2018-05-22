@@ -17,5 +17,4 @@ $this->params['breadcrumbs'][] = 'Обновление публикации: ' .
     <?= $this->render('_form', [
         'model' => $model,
     ]) ?>
-
 </div>
