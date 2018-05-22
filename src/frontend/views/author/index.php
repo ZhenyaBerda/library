@@ -38,13 +38,13 @@ $this->title = 'Авторы';
 //                    return count($model->publications);
 //                }
 //            ],
-//            [
-//                'label' => 'Псевдоним',
-//                'headerOptions' => ['width' => '10'],
-//                'content' => function ($model) {
-//                    return Html::a(count($model->authorAliases), ['/author-alias/index', 'author_id' => $model->id]);
-//                }
-//            ],
+            [
+                'label' => 'Псевдонимы',
+                'headerOptions' => ['width' => '10'],
+                'content' => function ($model) {
+                    return Html::a('Управление псевдонимами', ['/author-alias/index', 'author_id' => $model->id]);
+                }
+            ],
             [
 
 //                'class' => 'yii\grid\ActionColumn',

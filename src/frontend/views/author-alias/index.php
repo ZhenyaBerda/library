@@ -20,7 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
         пользователей вы не имеете возможности.
     </div>
     <p>
-        <?= Html::a('Добавить автора', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Добавить псевдоним', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
