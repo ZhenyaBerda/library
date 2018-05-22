@@ -118,3 +118,33 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+
+.pagination li.prev {
+    border-right: 1px solid #ced4da;
+}
+.pagination li {
+    line-height: 30px;
+    width: 30px;
+    text-align: center;
+    height: 30px;
+}
+.pagination li a {
+    display: block;
+    overflow: hidden;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    color: #55595c;
+    background-color: #f7f7f9;
+    border-right: 1px solid #ced4da;
+    font-size: 16px;
+    line-height: 30px;
+}
+.pagination li.active a {
+    background-color: #ced4da;
+}
+
+.pagination li.next a {
+    border-right: none;
+    background-color: transparent;
+}
