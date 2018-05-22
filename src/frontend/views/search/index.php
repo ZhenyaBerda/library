@@ -107,28 +107,24 @@ $this->title = 'Поиск публикаций';
             <div class="col-md-3" style="margin-top: 20px">
                 <?= $form->field($searchModel, 'wos_id')->checkbox() ?>
             </div>
-<!--            <div class="col-md-3">-->
-<!--                --><?//= $form->field($searchModel, 'scopus_number')->textInput(['maxlength' => true]) ?>
-<!--            </div>-->
         </div>
-<!--        <div class="row">-->
-<!---->
-<!--            <div class="col-md-3">-->
-<!--                --><?//= $form->field($searchModel, 'displayDoi')->checkbox() ?>
-<!--            </div>-->
-<!--            <div class="col-md-3">-->
-<!--                --><?//= $form->field($searchModel, 'displayScopus')->checkbox() ?>
-<!--            </div>-->
-<!---->
-<!--            <div class="col-md-3">-->
-<!--                --><?//= $form->field($searchModel, 'displayIsbn')->checkbox() ?>
-<!--            </div>-->
-<!--        </div>-->
+        <div class="row">
+
+            <div class="col-md-3">
+                <?= $form->field($searchModel, 'displayDoi')->checkbox() ?>
+            </div>
+            <div class="col-md-3">
+                <?= $form->field($searchModel, 'displayScopus')->checkbox() ?>
+            </div>
+
+            <div class="col-md-3">
+                <?= $form->field($searchModel, 'displayIsbn')->checkbox() ?>
+            </div>
+        </div>
 
 
         <div class="form-group">
             <?= Html::submitButton('Найти', ['class' => 'btn btn-primary']) ?>
-<!--            --><?//= Html::resetButton('Сбросить', ['class' => 'btn btn-default']) ?>
         </div>
 
         <?php \yii\bootstrap\ActiveForm::end(); ?>
