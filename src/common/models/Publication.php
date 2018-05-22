@@ -217,7 +217,6 @@ class Publication extends \yii\db\ActiveRecord
     {
         $file = $this->file;
         if ($file->saveAs($this->getDirOnServer() . $this->getFileName())) {
-            Yii::warning('тут мы должны обновить');
             Publication::updateAll(['file_exist' => 1], ['id' => $this->id]);
         }
     }

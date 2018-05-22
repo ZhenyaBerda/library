@@ -71,8 +71,11 @@ class PublicationController extends BaseAuthController
     {
         $model = new Publication();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['index']);
+        if ($model->load(Yii::$app->request->post())) {
+            $model->file = UploadedFile::getInstance($model, 'file');
+            if ($model->save()) {
+                return $this->redirect(['index']);
+            }
         }
 
         return $this->render('create', [
