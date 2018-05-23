@@ -47,9 +47,12 @@ use dastanaron\translit\Translit;
     if ($model->isbn && $searchModel->displayIsbn) {
         $extraData[] = 'ISBN: ' . $model->isbn;
     }
+    if ($model->wos && $searchModel->displayWos) {
+        $extraData[] = 'WOS: ' . $model->wos;
+    }
 
     if (count($extraData)) {
-        $textLink .= '(' . implode($extraData, ', ') . ')';
+        $textLink .= ' (' . implode($extraData, ', ') . ')';
     }
 
     if ($model->file_exist) {

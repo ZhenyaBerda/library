@@ -75,7 +75,9 @@ $this->title = 'Поиск публикаций';
             <div class="col-md-3">
                 <?= $form->field($searchModel, 'year_to')->dropDownList(PublicationHelper::getAgeList()) ?>
             </div>
-
+            <div class="col-md-3">
+                <?= $form->field($searchModel, 'wos')->textInput() ?>
+            </div>
         </div>
 
         <div class="row">
@@ -104,9 +106,7 @@ $this->title = 'Поиск публикаций';
                 <?= $form->field($searchModel, 'rinch_id')->checkbox() ?>
             </div>
 
-            <div class="col-md-3" style="margin-top: 20px">
-                <?= $form->field($searchModel, 'wos_id')->checkbox() ?>
-            </div>
+
         </div>
         <div class="row">
 
@@ -120,6 +120,10 @@ $this->title = 'Поиск публикаций';
             <div class="col-md-3">
                 <?= $form->field($searchModel, 'displayIsbn')->checkbox() ?>
             </div>
+
+            <div class="col-md-3">
+                <?= $form->field($searchModel, 'displayWos')->checkbox() ?>
+            </div>
         </div>
 
 
@@ -130,11 +134,11 @@ $this->title = 'Поиск публикаций';
         <?php \yii\bootstrap\ActiveForm::end(); ?>
 
     </div>
-                <ul>
-                    <?= \yii\widgets\ListView::widget([
-                        'dataProvider' => $dataProvider,
-                        'itemView' => '_search_item',
-                        'viewParams' => ['searchModel' => $searchModel],
-                    ]); ?>
-                </ul>
+    <ul>
+        <?= \yii\widgets\ListView::widget([
+            'dataProvider' => $dataProvider,
+            'itemView' => '_search_item',
+            'viewParams' => ['searchModel' => $searchModel],
+        ]); ?>
+    </ul>
 </div>

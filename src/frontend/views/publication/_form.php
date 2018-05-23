@@ -84,8 +84,8 @@ use yii\web\JsExpression;
         <div class="col-md-3">
             <?= $form->field($model, 'doi_number')->textInput(['maxlength' => true]) ?>
         </div>
-        <div class="col-md-3" style="margin-top: 30px">
-            <?= $form->field($model, 'wos_id')->checkbox() ?>
+        <div class="col-md-3">
+            <?= $form->field($model, 'wos')->textInput(['maxlength' => true]) ?>
         </div>
     </div>
 

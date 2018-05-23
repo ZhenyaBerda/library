@@ -50,7 +50,6 @@ class UtilController extends Controller
                     $model->title = $publication[1];
                     $model->year = $year;
                     $model->rinch_id = strlen($publication[4]);
-                    $model->wos_id = strlen($publication[5]);
                     $model->scopus_number = $publication[6];
                     $model->doi_number = $publication[7];
                     $model->user_id = $user->id;

@@ -19,6 +19,7 @@ class PublicationSearch extends Publication
     public $displayDoi = 0;
     public $displayScopus = 0;
     public $displayIsbn = 0;
+    public $displayWos = 0;
 
     /**
      * @inheritdoc
@@ -26,11 +27,11 @@ class PublicationSearch extends Publication
     public function rules()
     {
         return [
-            [['title', 'publisher_name'], 'string'],
-            [['id', 'user_id', 'language_id', 'year', 'year_from', 'year_to', 'journal_id', 'scopus_id', 'wos_id', 'rinch_id', 'peer_reviewed_id', 'conference_id', 'created_at', 'updated_at'], 'integer'],
-            [['scopus_number', 'doi_number', 'isbn'], 'safe'],
+            [['title', 'publisher_name', 'wos'], 'string'],
+            [['id', 'user_id', 'language_id', 'year', 'year_from', 'year_to', 'journal_id', 'scopus_id', 'rinch_id', 'peer_reviewed_id', 'conference_id', 'created_at', 'updated_at'], 'integer'],
+            [['scopus_number', 'doi_number', 'isbn', 'wos'], 'safe'],
             ['authorListId', 'safe'],
-            [['displayDoi', 'displayScopus', 'displayIsbn'], 'integer']
+            [['displayDoi', 'displayScopus', 'displayIsbn', 'displayWos'], 'integer']
         ];
     }
 
@@ -42,6 +43,7 @@ class PublicationSearch extends Publication
         $labels['displayDoi'] = 'Показать DOI';
         $labels['displayScopus'] = 'Показать Scopus ID';
         $labels['displayIsbn'] = 'Показать ISBN';
+        $labels['displayWos'] = 'Показать WOS';
         return $labels;
     }
 
@@ -107,7 +109,7 @@ class PublicationSearch extends Publication
             $query->andFilterWhere(['<=', 'year', $this->year_to]);
         }
 
-        $columnsForFilter = ['language_id', 'journal_id', 'scopus_id', 'wos_id', 'rinch_id', 'peer_reviewed_id', 'conference_id'];
+        $columnsForFilter = ['language_id', 'journal_id', 'scopus_id', 'rinch_id', 'peer_reviewed_id', 'conference_id'];
 
         foreach ($this->attributes as $attribute => $value) {
             if (in_array($attribute, $columnsForFilter) && $value) {
@@ -121,6 +123,7 @@ class PublicationSearch extends Publication
         $query->andFilterWhere(['like', 'scopus_number', $this->scopus_number])
             ->andFilterWhere(['like', 'doi_number', $this->doi_number])
             ->andFilterWhere(['like', 'isbn', $this->isbn])
+            ->andFilterWhere(['like', 'wos', $this->wos])
             ->andFilterWhere(['like', 'title', $this->title]);
 
         return $dataProvider;

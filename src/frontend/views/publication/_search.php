@@ -35,7 +35,6 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'doi_number') ?>
 
-    <?php // echo $form->field($model, 'wos_id') ?>
 
     <?php // echo $form->field($model, 'rinch_id') ?>
 

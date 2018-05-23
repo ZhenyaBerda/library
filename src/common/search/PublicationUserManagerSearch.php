@@ -21,7 +21,7 @@ class PublicationUserManagerSearch extends Publication
     {
         return [
             [['title'], 'string'],
-            [['id', 'user_id', 'language_id', 'year', 'year_from', 'year_to', 'journal_id', 'scopus_id', 'wos_id', 'rinch_id', 'peer_reviewed_id', 'conference_id', 'created_at', 'updated_at'], 'integer'],
+            [['id', 'user_id', 'language_id', 'year', 'year_from', 'year_to', 'journal_id', 'scopus_id', 'rinch_id', 'peer_reviewed_id', 'conference_id', 'created_at', 'updated_at'], 'integer'],
             [['scopus_number', 'doi_number', 'isbn'], 'safe'],
         ];
     }
@@ -75,7 +75,6 @@ class PublicationUserManagerSearch extends Publication
             'year' => $this->year,
             'journal_id' => $this->journal_id,
             'scopus_id' => $this->scopus_id,
-            'wos_id' => $this->wos_id,
             'rinch_id' => $this->rinch_id,
             'peer_reviewed_id' => $this->peer_reviewed_id,
             'conference_id' => $this->conference_id,

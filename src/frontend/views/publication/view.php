@@ -36,7 +36,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'scopus_id',
             'scopus_number',
             'doi_number',
-            'wos_id',
             'rinch_id',
             'peer_reviewed_id',
             'conference_id',
