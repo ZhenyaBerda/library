@@ -62,7 +62,8 @@ use dastanaron\translit\Translit;
     } else {
         echo $textLink;
     }
-    if (!Yii::$app->user->isGuest) {
+   if (!Yii::$app->user->isGuest) {
+    if(Yii::$app->user->identity->username == 'Admin')
         echo ' | ' . Html::a('Отредактировать', ['/publication/update', 'id' => $model->id]);
 
     }

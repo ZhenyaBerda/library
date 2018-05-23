@@ -15,9 +15,9 @@ $this->title = 'Авторы';
 <div class="author-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-
+<br>
     <p>
-        <?= Html::a('Добавить автора', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Добавить автора', ['create'], ['class' => 'btn btn-primary']) ?>
     </p>
 
     <?= GridView::widget([
@@ -30,14 +30,6 @@ $this->title = 'Авторы';
             'firstName',
             'lastName',
             'middleName',
-//            [
-//                'attribute' => 'publication',
-//                'label' => 'Публикаций',
-//                'headerOptions' => ['width' => '10'],
-//                'content' => function ($model) {
-//                    return count($model->publications);
-//                }
-//            ],
             [
                 'label' => 'Псевдонимы',
                 'headerOptions' => ['width' => '10'],
@@ -46,10 +38,6 @@ $this->title = 'Авторы';
                 }
             ],
             [
-
-//                'class' => 'yii\grid\ActionColumn',
-//                'template' => '{delete}',
-//                'headerOptions' => ['width' => '20'],
                 'class' => ActionColumn::className(),
                 'buttons' => [
                     'update' => function ($url, $model, $key) {

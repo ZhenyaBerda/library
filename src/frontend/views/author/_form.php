@@ -14,7 +14,7 @@ use common\helpers\AuthorHelper;
     <?php $form = ActiveForm::begin(); ?>
 
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-5">
 
             <?= $form->field($model, 'firstName')->textInput(['maxlength' => true]) ?>
             </div>
@@ -23,21 +23,21 @@ use common\helpers\AuthorHelper;
     </div>
 
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-5">
             <?= $form->field($model, 'middleName')->textInput(['maxlength' => true]) ?>
         </div>
     </div>
 
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-5">
             <?= $form->field($model, 'lastName')->textInput(['maxlength' => true]) ?>
         </div>
     </div>
 
-
+    <br>
 
     <div class="form-group">
-        <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Сохранить', ['class' => 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

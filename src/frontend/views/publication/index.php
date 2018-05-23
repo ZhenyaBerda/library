@@ -15,9 +15,9 @@ $this->title = 'Публикации';
 <div class="publication-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-
+<br>
     <p>
-        <?= Html::a('Добавить публикацию', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Добавить публикацию', ['create'], ['class' => 'btn btn-primary']) ?>
     </p>
 
     <?= GridView::widget([

@@ -20,6 +20,7 @@ $this->title = 'Поиск публикаций';
 <div class="publication-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
+    <br>
     <div class="publication-search">
 
         <?php $form = \yii\bootstrap\ActiveForm::begin([
@@ -28,7 +29,7 @@ $this->title = 'Поиск публикаций';
         ]); ?>
 
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-md-12">
                 <?= $form
                     ->field($searchModel, 'authorListId')
                     ->widget(Select2::class, [
@@ -64,6 +65,10 @@ $this->title = 'Поиск публикаций';
             </div>
 
             <div class="col-md-3">
+                <?= $form->field($searchModel, 'type_id')->dropDownList(PublicationHelper::getTypes()) ?>
+            </div>
+
+            <div class="col-md-3">
                 <?= $form->field($searchModel, 'language_id')->dropDownList(ArrayHelper::merge([null => 'Все'], PublicationHelper::getLanguageList())) ?>
             </div>
         </div>
@@ -75,9 +80,7 @@ $this->title = 'Поиск публикаций';
             <div class="col-md-3">
                 <?= $form->field($searchModel, 'year_to')->dropDownList(PublicationHelper::getAgeList()) ?>
             </div>
-            <div class="col-md-3">
-                <?= $form->field($searchModel, 'wos')->textInput() ?>
-            </div>
+
         </div>
 
         <div class="row">
@@ -94,8 +97,29 @@ $this->title = 'Поиск публикаций';
                 <?= $form->field($searchModel, 'scopus_number')->textInput(['maxlength' => true]) ?>
             </div>
 
+            <div class="col-md-3">
+                <?= $form->field($searchModel, 'wos')->textInput() ?>
+            </div>
+
         </div>
 
+        <div class="row">
+            <div class="col-md-3" style="margin-top: 20px">
+                <?= $form->field($searchModel, 'displayIsbn')->checkbox() ?>
+            </div>
+
+            <div class="col-md-3" style="margin-top: 20px">
+                <?= $form->field($searchModel, 'displayDoi')->checkbox() ?>
+            </div>
+
+            <div class="col-md-3" style="margin-top: 20px">
+                <?= $form->field($searchModel, 'displayScopus')->checkbox() ?>
+            </div>
+
+            <div class="col-md-3" style="margin-top: 20px">
+                <?= $form->field($searchModel, 'displayWos')->checkbox() ?>
+            </div>
+        </div>
 
         <div class="row">
             <div class="col-md-3" style="margin-top: 20px">
@@ -105,30 +129,7 @@ $this->title = 'Поиск публикаций';
             <div class="col-md-3" style="margin-top: 20px">
                 <?= $form->field($searchModel, 'rinch_id')->checkbox() ?>
             </div>
-            <div class="col-md-3">
-                <?= $form->field($searchModel, 'type_id')->dropDownList(PublicationHelper::getTypes()) ?>
-            </div>
-
-
         </div>
-        <div class="row">
-
-            <div class="col-md-3">
-                <?= $form->field($searchModel, 'displayDoi')->checkbox() ?>
-            </div>
-            <div class="col-md-3">
-                <?= $form->field($searchModel, 'displayScopus')->checkbox() ?>
-            </div>
-
-            <div class="col-md-3">
-                <?= $form->field($searchModel, 'displayIsbn')->checkbox() ?>
-            </div>
-
-            <div class="col-md-3">
-                <?= $form->field($searchModel, 'displayWos')->checkbox() ?>
-            </div>
-        </div>
-
 
         <div class="form-group">
             <?= Html::submitButton('Найти', ['class' => 'btn btn-primary']) ?>

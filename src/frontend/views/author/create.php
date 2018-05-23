@@ -13,7 +13,7 @@ $this->title = 'Добавление автора';
 <div class="author-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
-
+<br>
     <?= $this->render('_form', [
         'model' => $model,
     ]) ?>
