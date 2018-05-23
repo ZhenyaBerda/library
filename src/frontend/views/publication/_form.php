@@ -96,6 +96,9 @@ use yii\web\JsExpression;
         <div class="col-md-3">
             <?= $form->field($model, 'conference_city')->textInput(['maxlength' => true]) ?>
         </div>
+        <div class="col-md-3">
+            <?= $form->field($model, 'type_id')->dropDownList(PublicationHelper::getTypes()) ?>
+        </div>
     </div>
 
     <div class="row">

@@ -31,7 +31,7 @@ class PublicationSearch extends Publication
             [['id', 'user_id', 'language_id', 'year', 'year_from', 'year_to', 'journal_id', 'scopus_id', 'rinch_id', 'peer_reviewed_id', 'conference_id', 'created_at', 'updated_at'], 'integer'],
             [['scopus_number', 'doi_number', 'isbn', 'wos'], 'safe'],
             ['authorListId', 'safe'],
-            [['displayDoi', 'displayScopus', 'displayIsbn', 'displayWos'], 'integer']
+            [['displayDoi', 'displayScopus', 'displayIsbn', 'displayWos', 'type_id'], 'integer']
         ];
     }
 
@@ -115,6 +115,10 @@ class PublicationSearch extends Publication
             if (in_array($attribute, $columnsForFilter) && $value) {
                 $query->andFilterWhere([$attribute => $value]);
             }
+        }
+        if ($this->type_id) {
+            $query->andWhere(['type_id' => $this->type_id]);
+
         }
 
         if ($this->publisher_name) {

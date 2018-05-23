@@ -34,6 +34,7 @@ use yii\web\UploadedFile;
  * @property string $conference_date
  * @property string $conference_city
  * @property string $wos
+ * @property integer $type_id
  *
  *
  * @property Journal $journal
@@ -66,7 +67,7 @@ class Publication extends \yii\db\ActiveRecord
     {
         return [
             [['language_id', 'authorListId'], 'required'],
-            [['user_id', 'language_id', 'year', 'journal_id', 'scopus_id', 'rinch_id', 'peer_reviewed_id', 'conference_id', 'created_at', 'updated_at', 'file_exist'], 'integer'],
+            [['user_id', 'language_id', 'year', 'journal_id', 'scopus_id', 'rinch_id', 'peer_reviewed_id', 'conference_id', 'created_at', 'updated_at', 'file_exist', 'type_id'], 'integer'],
             [['scopus_number', 'doi_number', 'isbn', 'title', 'publisher', 'publisher_name', 'publisher_number', 'publisher_pages', 'publisher_city', 'conference_date', 'conference_city', 'wos'], 'string', 'max' => 191],
             [['journal_id'], 'exist', 'skipOnError' => true, 'targetClass' => Journal::class, 'targetAttribute' => ['journal_id' => 'id']],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['user_id' => 'id']],
@@ -115,6 +116,7 @@ class Publication extends \yii\db\ActiveRecord
             'conference_date' => 'Дата конференции',
             'conference_city' => 'Город конференции',
             'wos' => 'WOS',
+            'type_id' => 'Тип публикации',
         ];
     }
 

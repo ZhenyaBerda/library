@@ -28,7 +28,9 @@ use dastanaron\translit\Translit;
         $authorText = $translit->translit($authorText, false, 'ru-en');
     }
     $textLink = $authorText;
-    $textLink .= ' ' . $model->title . ' // ';
+    $textLink .= ' ' . $model->title;
+
+    $textLink .= $model->type_id === 5 ? ': ' : ' // ' ;
 
     foreach ($publisherFields as $publisherField) {
         if ($model->{$publisherField}()) {

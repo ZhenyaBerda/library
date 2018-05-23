@@ -105,6 +105,9 @@ $this->title = 'Поиск публикаций';
             <div class="col-md-3" style="margin-top: 20px">
                 <?= $form->field($searchModel, 'rinch_id')->checkbox() ?>
             </div>
+            <div class="col-md-3">
+                <?= $form->field($searchModel, 'type_id')->dropDownList(PublicationHelper::getTypes()) ?>
+            </div>
 
 
         </div>
