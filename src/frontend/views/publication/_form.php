@@ -15,37 +15,33 @@ use yii\web\JsExpression;
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]) ?>
 
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-12">
             <?= $form->field($model, 'title')->textInput() ?>
         </div>
-        <div class="col-md-3">
-            <?= $form->field($model, 'year')->dropDownList(PublicationHelper::getAgeList()) ?>
-        </div>
-        <div class="col-md-3">
-            <?= $form->field($model, 'journal_id')->widget(\kartik\select2\Select2::className(), [
-                'initValueText' => 'Выберите журнал',
-                'options' => ['placeholder' => 'Поиск журнала'],
-                'data' => [$model->journal->id => $model->journal->title],
-                'value' => [$model->journal->title],
-                'pluginOptions' => [
-                    'language' => [
-                        'errorLoading' => new JsExpression("function () { return 'Поиск результатов...'; }"),
-                    ],
-                    'ajax' => [
-                        'url' => \yii\helpers\Url::to(['journal']),
-                        'dataType' => 'json',
-                        'data' => new JsExpression('function(params) { return {q:params.term}; }')
-                    ],
-                    'escapeMarkup' => new JsExpression('function (markup) { return markup; }'),
-                    'templateResult' => new JsExpression('function(city) { return city.text; }'),
-                    'templateSelection' => new JsExpression('function (city) { return city.text; }'),
-                ],
-            ]); ?>
-        </div>
-        <div class="col-md-3" style="margin-top: 30px">
-            <?= $form->field($model, 'rinch_id')->checkbox() ?>
-        </div>
     </div>
+
+<!--        <div class="col-md-3">-->
+<!--            --><?//= $form->field($model, 'journal_id')->widget(\kartik\select2\Select2::className(), [
+//                'initValueText' => 'Выберите журнал',
+//                'options' => ['placeholder' => 'Поиск журнала'],
+//                'data' => [$model->journal->id => $model->journal->title],
+//                'value' => [$model->journal->title],
+//                'pluginOptions' => [
+//                    'language' => [
+//                        'errorLoading' => new JsExpression("function () { return 'Поиск результатов...'; }"),
+//                    ],
+//                    'ajax' => [
+//                        'url' => \yii\helpers\Url::to(['journal']),
+//                        'dataType' => 'json',
+//                        'data' => new JsExpression('function(params) { return {q:params.term}; }')
+//                    ],
+//                    'escapeMarkup' => new JsExpression('function (markup) { return markup; }'),
+//                    'templateResult' => new JsExpression('function(city) { return city.text; }'),
+//                    'templateSelection' => new JsExpression('function (city) { return city.text; }'),
+//                ],
+//            ]); ?>
+<!--        </div>-->
+
     <div class="row">
         <div class="col-md-12">
             <?= $form->field($model, 'authorListId')->widget(\kartik\select2\Select2::class, [
@@ -76,29 +72,50 @@ use yii\web\JsExpression;
 
     <div class="row">
         <div class="col-md-3">
+            <?= $form->field($model, 'year')->dropDownList(PublicationHelper::getAgeList()) ?>
+        </div>
+
+        <div class="col-md-3">
+            <?= $form->field($model, 'type_id')->dropDownList(PublicationHelper::getTypes()) ?>
+        </div>
+
+        <div class="col-md-3">
             <?= $form->field($model, 'language_id')->dropDownList(PublicationHelper::getLanguageList()) ?>
-        </div>
-        <div class="col-md-3">
-            <?= $form->field($model, 'isbn')->textInput(['maxlength' => true]) ?>
-        </div>
-        <div class="col-md-3">
-            <?= $form->field($model, 'doi_number')->textInput(['maxlength' => true]) ?>
-        </div>
-        <div class="col-md-3">
-            <?= $form->field($model, 'wos')->textInput(['maxlength' => true]) ?>
         </div>
     </div>
 
     <div class="row">
+
+        <div class="col-md-3">
+            <?= $form->field($model, 'isbn')->textInput(['maxlength' => true]) ?>
+        </div>
+
+        <div class="col-md-3">
+            <?= $form->field($model, 'doi_number')->textInput(['maxlength' => true]) ?>
+        </div>
+
+        <div class="col-md-3">
+            <?= $form->field($model, 'wos')->textInput(['maxlength' => true]) ?>
+        </div>
+
+        <div class="col-md-3">
+            <?= $form->field($model, 'scopus_number')->textInput(['maxlength' => true]) ?>
+        </div>
+    </div>
+
+    <div class="row">
+<!--        <div class="col-md-3" style="margin-top: 30px">-->
+<!--            --><?//= $form->field($model, 'conference_id')->checkbox() ?>
+<!--        </div>-->
+
         <div class="col-md-2">
             <?= $form->field($model, 'conference_date')->textInput(['maxlength' => true]) ?>
         </div>
+
         <div class="col-md-3">
             <?= $form->field($model, 'conference_city')->textInput(['maxlength' => true]) ?>
         </div>
-        <div class="col-md-3">
-            <?= $form->field($model, 'type_id')->dropDownList(PublicationHelper::getTypes()) ?>
-        </div>
+
     </div>
 
     <div class="row">
@@ -124,14 +141,9 @@ use yii\web\JsExpression;
         <div class="col-md-3" style="margin-top: 25px">
             <?= $form->field($model, 'scopus_id')->checkbox() ?>
         </div>
-        <div class="col-md-3">
-            <?= $form->field($model, 'scopus_number')->textInput(['maxlength' => true]) ?>
-        </div>
+
         <div class="col-md-3" style="margin-top: 30px">
-            <?= $form->field($model, 'peer_reviewed_id')->checkbox() ?>
-        </div>
-        <div class="col-md-3" style="margin-top: 30px">
-            <?= $form->field($model, 'conference_id')->checkbox() ?>
+            <?= $form->field($model, 'rinch_id')->checkbox() ?>
         </div>
     </div>
 
@@ -144,12 +156,13 @@ use yii\web\JsExpression;
                 echo 'Файл доступен по ' . Html::a('ссылке', $model->getFileOnWeb());
             } ?>
         </div>
+
+
     </div>
-
-
     <div class="form-group">
-        <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Сохранить', ['class' => 'btn btn-primary']) ?>
     </div>
+
 
     <?php ActiveForm::end(); ?>
 

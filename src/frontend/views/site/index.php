@@ -20,7 +20,11 @@ $this->title = 'Главная страница';
         <p>Для работы с электронной библиотекой <a href="http://local.eltech-library.ru/site/login">войдите</a> в систему</p>
         <p>или <a href="http://local.eltech-library.ru/site/signup">зарегистрируйтесь</a></p>
         <? else:?>
+            <h3>
+                <small class="text-muted"> Здравствуй, <?= Yii::$app->user->identity->username ?></small>
+            </h3>
            <p class="text-muted">
+
             <?=  Html::a("Выйти из системы", ['site/logout'], [
                                 'data' => ['method' => 'post'],
                                 ['class' => 'white text-center']
