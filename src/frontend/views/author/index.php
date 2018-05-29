@@ -27,8 +27,8 @@ $this->title = 'Авторы';
                 'attribute' => 'id',
                 'headerOptions' => ['width' => '10'],
             ],
-            'firstName',
             'lastName',
+            'firstName',
             'middleName',
             [
                 'label' => 'Псевдонимы',

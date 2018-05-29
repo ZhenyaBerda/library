@@ -62,9 +62,7 @@ $this->title = 'Публикации';
             ],
 
             [
-//                'class' => 'yii\grid\ActionColumn',
-//                'template' => '{update} {delete}',
-//                'headerOptions' => ['width' => '20'],
+
                 'class' => ActionColumn::className(),
                 'buttons' => [
                     'update' => function ($url, $model, $key) {
@@ -80,6 +78,13 @@ $this->title = 'Публикации';
                     }
                 ]
             ],
+//            [
+//                    'atribute'=>'isbn',
+//                'content' => function ($model) {
+//                    $statusList = PublicationHelper::search();
+//                    return $statusList[$model->isbn];
+//                }
+//            ],
         ],
     ]); ?>
 </div>
