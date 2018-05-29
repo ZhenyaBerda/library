@@ -17,11 +17,11 @@ use yii\widgets\ActiveForm;
             <?= $form->field($model, 'firstName')->textInput(['maxlength' => true]) ?>
         </div>
 
-        <div class="col-md-4">
-            <div class="alert alert-info" role="alert">
-                Данные поля обязательны для заполнения. Пожалуйста, заполняйте на русском языке.
-            </div>
-        </div>
+<!--        <div class="col-md-4">-->
+<!--            <div class="alert alert-info" role="alert">-->
+<!--                Данные поля обязательны для заполнения. Пожалуйста, заполняйте на русском языке.-->
+<!--            </div>-->
+<!--        </div>-->
 
     </div>
 
@@ -51,7 +51,8 @@ use yii\widgets\ActiveForm;
 
 
     <div class="form-group">
-        <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Сохранить', ['class' => 'btn btn-primary']) ?>
+<!--        <a class="offset-1" href="http://local.eltech-library.ru/author-alias/index">Вернуться назад</a>-->
     </div>
 
     <?php ActiveForm::end(); ?>

@@ -161,6 +161,7 @@ use yii\web\JsExpression;
     </div>
     <div class="form-group">
         <?= Html::submitButton('Сохранить', ['class' => 'btn btn-primary']) ?>
+        <a class="offset-1" href="http://local.eltech-library.ru/publication">Вернуться назад</a>
     </div>
 
 

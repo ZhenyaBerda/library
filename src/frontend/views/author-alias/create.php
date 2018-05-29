@@ -7,8 +7,7 @@ use yii\helpers\Html;
 /* @var $model common\models\AuthorAlias */
 
 $this->title = 'Добавление псевдонима автора';
-$this->params['breadcrumbs'][] = ['label' => 'Авторы', 'url' => ['/author/index']];
-$this->params['breadcrumbs'][] = $this->title;
+
 ?>
 <div class="author-alias-create">
 

@@ -38,6 +38,7 @@ use common\helpers\AuthorHelper;
 
     <div class="form-group">
         <?= Html::submitButton('Сохранить', ['class' => 'btn btn-primary']) ?>
+        <a class="offset-1" href="http://local.eltech-library.ru/author">Вернуться назад</a>
     </div>
 
     <?php ActiveForm::end(); ?>

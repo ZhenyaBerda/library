@@ -7,8 +7,8 @@ use yii\widgets\DetailView;
 /* @var $model common\models\AuthorAlias */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Author Aliases', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+//$this->params['breadcrumbs'][] = ['label' => 'Author Aliases', 'url' => ['index']];
+//$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="author-alias-view">
 

@@ -9,18 +9,13 @@ use yii\grid\GridView;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Авторы (псевдонимы)';
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="author-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <div class="alert alert-info" role="alert">
-        На данной странице указаны только авторы, которых вы добавили. Изменять или удалять авторов других
-        пользователей вы не имеете возможности.
-    </div>
     <p>
-        <?= Html::a('Добавить псевдоним', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Добавить псевдоним', ['create'], ['class' => 'btn btn-primary']) ?>
     </p>
 
     <?= GridView::widget([
