@@ -9,20 +9,18 @@ use common\helpers\JournalHelper;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Журналы';
-$this->params['breadcrumbs'][] = $this->title;
+
+//$this->params['breadcrumbs'][] = $this->title;
 ?>
+
 <div class="journal-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
+    <br>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <div class="alert alert-info" role="alert">
-        На данной странице указаны только журналы, которые вы добавили. Изменять или удалять журналы других
-        пользователей вы не имеете возможности.
-    </div>
-
     <p>
-        <?= Html::a('Добавить', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Добавить', ['create'], ['class' => 'btn btn-primary']) ?>
     </p>
 
     <?= GridView::widget([

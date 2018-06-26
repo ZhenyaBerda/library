@@ -29,6 +29,7 @@ $menuItems = [
         ['label' => 'Поиск', 'url' => "http://local.eltech-library.ru/search/index"],
         ['label' => 'Авторы', 'url' => "http://local.eltech-library.ru/author"],
         ['label' => 'Публикации', 'url' => "http://local.eltech-library.ru/publication"],
+        ['label' => 'Журналы', 'url' => "http://local.eltech-library.ru/journal"]
         ];
 }
 ?>
