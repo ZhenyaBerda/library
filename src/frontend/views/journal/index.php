@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\grid\ActionColumn;
 use common\helpers\JournalHelper;
 
 /* @var $this yii\web\View */
@@ -38,17 +39,29 @@ $this->title = 'Журналы';
                 }],
             [
                 'attribute' => 'publication',
-                'label' => 'Публикаций',
+                'label' => 'Публикации',
                 'headerOptions' => ['max-width' => '10'],
                 'content' => function ($model) {
                     return count($model->publications);
                 }
             ],
             [
-                'class' => 'yii\grid\ActionColumn',
-                'template' => '{update} {delete}',
-                'headerOptions' => ['width' => '20'],
-            ]
+                'class' => ActionColumn::className(),
+                'buttons' => [
+                    'update' => function ($url, $model, $key) {
+                        return Html::a('Редактировать', $url);
+                    }
+                ]
+
+            ],
+            [
+                'class' => ActionColumn::className(),
+                'buttons' => [
+                    'delete' => function ($url, $model, $key) {
+                        return Html::a('Удалить', $url, ['data-method'=>'post']);
+                    }
+                ]
+            ],
         ],
     ]); ?>
 </div>

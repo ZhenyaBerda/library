@@ -7,12 +7,13 @@ use yii\helpers\Html;
 /* @var $model common\models\Journal */
 
 $this->title = 'Добавление журнала';
-$this->params['breadcrumbs'][] = ['label' => 'Журналы', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+//$this->params['breadcrumbs'][] = ['label' => 'Журналы', 'url' => ['index']];
+//$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="journal-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
+    <br>
 
     <?= $this->render('_form', [
         'model' => $model,
