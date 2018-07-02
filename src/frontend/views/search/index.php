@@ -1,5 +1,5 @@
-<?php
 
+<?php
 use yii\bootstrap\Tabs;
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
@@ -8,14 +8,10 @@ use common\helpers\PublicationHelper;
 use yii\web\JsExpression;
 use yii\helpers\Url;
 use kartik\select2\Select2;
-
-
 /* @var $this yii\web\View */
 /* @var $searchModel common\search\PublicationSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
-
 $this->title = 'Поиск публикаций';
-
 ?>
 <div class="publication-index">
 

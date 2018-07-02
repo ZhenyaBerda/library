@@ -1,13 +1,10 @@
 <?php
-
 namespace common\search;
-
 use common\models\Author;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use common\models\Publication;
-
 /**
  * PublicationSearch represents the model behind the search form of `common\models\Publication`.
  */
@@ -15,12 +12,10 @@ class PublicationSearch extends Publication
 {
     public $year_from;
     public $year_to;
-
     public $displayDoi = 0;
     public $displayScopus = 0;
     public $displayIsbn = 0;
     public $displayWos = 0;
-
     /**
      * @inheritdoc
      */
@@ -34,7 +29,6 @@ class PublicationSearch extends Publication
             [['displayDoi', 'displayScopus', 'displayIsbn', 'displayWos', 'type_id'], 'integer']
         ];
     }
-
     public function attributeLabels()
     {
         $labels = parent::attributeLabels();
@@ -46,7 +40,6 @@ class PublicationSearch extends Publication
         $labels['displayWos'] = 'Показать WOS';
         return $labels;
     }
-
     /**
      * @inheritdoc
      */
@@ -55,7 +48,6 @@ class PublicationSearch extends Publication
         // bypass scenarios() implementation in the parent class
         return Model::scenarios();
     }
-
     /**
      * @return mixed
      */
@@ -68,7 +60,6 @@ class PublicationSearch extends Publication
         }
         return $result;
     }
-
     /**
      * Creates data provider instance with search query applied
      *
@@ -79,38 +70,29 @@ class PublicationSearch extends Publication
     public function search($params)
     {
         $query = Publication::find();
-
         // add conditions that should always apply here
-
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
-
         $this->load($params);
-
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails
             // $query->where('0=1');
             return $dataProvider;
         }
-
         if ($this->authorListId) {
             $query->leftJoin('publication_author pa', 'pa.publication_id = publication.id')
                 ->where(['pa.author_id' => $this->authorListId])
                 ->groupBy(['publication.id'])
                 ->having('COUNT(pa.author_id) >=' . count($this->authorListId));
         }
-
         if ($this->year_from) {
             $query->andFilterWhere(['>=', 'year', $this->year_from]);
         }
-
         if ($this->year_to) {
             $query->andFilterWhere(['<=', 'year', $this->year_to]);
         }
-
         $columnsForFilter = ['language_id', 'journal_id', 'scopus_id', 'rinch_id', 'peer_reviewed_id', 'conference_id'];
-
         foreach ($this->attributes as $attribute => $value) {
             if (in_array($attribute, $columnsForFilter) && $value) {
                 $query->andFilterWhere([$attribute => $value]);
@@ -118,9 +100,7 @@ class PublicationSearch extends Publication
         }
         if ($this->type_id) {
             $query->andWhere(['type_id' => $this->type_id]);
-
         }
-
         if ($this->publisher_name) {
             $query->andFilterWhere(['like', 'publisher_name', $this->publisher_name]);
         }
@@ -129,7 +109,6 @@ class PublicationSearch extends Publication
             ->andFilterWhere(['like', 'isbn', $this->isbn])
             ->andFilterWhere(['like', 'wos', $this->wos])
             ->andFilterWhere(['like', 'title', $this->title]);
-
         return $dataProvider;
     }
 }
