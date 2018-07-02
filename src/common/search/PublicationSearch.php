@@ -12,6 +12,7 @@ class PublicationSearch extends Publication
 {
     public $year_from;
     public $year_to;
+    //public $year;
     public $displayDoi = 0;
     public $displayScopus = 0;
     public $displayIsbn = 0;
@@ -32,6 +33,7 @@ class PublicationSearch extends Publication
     public function attributeLabels()
     {
         $labels = parent::attributeLabels();
+//        $labels['year'] = 'Год';
         $labels['year_from'] = 'Год от';
         $labels['year_to'] = 'Год до';
         $labels['displayDoi'] = 'Показать DOI';
@@ -86,6 +88,11 @@ class PublicationSearch extends Publication
                 ->groupBy(['publication.id'])
                 ->having('COUNT(pa.author_id) >=' . count($this->authorListId));
         }
+
+//        if ($this->year)
+//        {
+//
+//        }
         if ($this->year_from) {
             $query->andFilterWhere(['>=', 'year', $this->year_from]);
         }

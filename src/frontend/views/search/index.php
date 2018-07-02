@@ -51,10 +51,15 @@ $this->title = 'Поиск публикаций';
                     ]); ?>
             </div>
         </div>
+
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-12">
                 <?= $form->field($searchModel, 'title')->textInput(['maxlength' => true]) ?>
             </div>
+        </div>
+
+        <div class="row">
+
 
             <div class="col-md-3">
                 <?= $form->field($searchModel, 'publisher_name')->dropDownList(ArrayHelper::merge([null => 'Все'], PublicationHelper::getPublisherNames())) ?>
@@ -70,6 +75,9 @@ $this->title = 'Поиск публикаций';
         </div>
 
         <div class="row">
+
+
+
             <div class="col-md-3">
                 <?= $form->field($searchModel, 'year_from')->dropDownList(ArrayHelper::merge([null => 'Все'], PublicationHelper::getAgeList())) ?>
             </div>
